@@ -8,13 +8,13 @@
 import UIKit
 
 class WineSelectionTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var productImgView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var yearLbl: UILabel!
     @IBOutlet weak var tasteLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +25,9 @@ class WineSelectionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
+    
 
 }

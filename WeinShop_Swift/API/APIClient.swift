@@ -12,8 +12,9 @@ struct APIClient {
     
     let urlString = "https://public.syntax-institut.de/apps/JenniferHedtke/data.json"
     
+    //MARK: - Winelist
+    
     func getWineList(completion: @escaping([Wine]) -> Void) {
-        print("XYZ")
         //URL definieren
         let url = URL(string: urlString)
         guard url != nil else { return }
@@ -21,23 +22,20 @@ struct APIClient {
         //URL Session undDatatask
         let dataTask = URLSession.shared.dataTask(with: url!) { data, response, error in
             if error == nil && data != nil {
-                print(error)
                 let decoder = JSONDecoder()
                 
                 do {
-                    print(String(data: data!, encoding: .utf8))
                     let wine = try decoder.decode([Wine].self, from: data!)
                     completion(wine)
                 } catch {
-                    print(error)
+                    print("Error by loading Winelist")
                 }
             }
         }
         dataTask.resume()
     }
     
-    
-    
+    //MARK: - Image
     
     func getImage(imageUrl: URL, completion: @escaping(UIImage) -> Void) {
         //URL Session und Downloadtask

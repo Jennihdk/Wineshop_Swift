@@ -43,7 +43,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Rotwein" subtitle=""/>
                                 <connections>
-                                    <segue destination="fHS-5W-ScZ" kind="show" id="nVA-gI-3CK"/>
+                                    <action selector="btnRedwineClicked:" destination="nSc-qP-R0c" eventType="touchUpInside" id="rqN-z0-I4V"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbr-gb-LsE">
@@ -54,6 +54,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Roséwein"/>
+                                <connections>
+                                    <action selector="btnRosewineClicked:" destination="nSc-qP-R0c" eventType="touchUpInside" id="bSa-kw-5Os"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8C-cw-ehk">
                                 <rect key="frame" x="16" y="319" width="358" height="207"/>
@@ -63,6 +66,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Weißwein"/>
+                                <connections>
+                                    <action selector="btnWhitewineClicked:" destination="nSc-qP-R0c" eventType="touchUpInside" id="e4N-bp-zAX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mZB-jX-tFU"/>
@@ -93,10 +99,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Kategorien" id="hGN-uw-PAh"/>
+                    <connections>
+                        <segue destination="fHS-5W-ScZ" kind="show" identifier="CategoryListSegue" id="GlY-ts-bGD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h38-F3-S6o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225" y="-700"/>
+            <point key="canvasLocation" x="1225" y="-586"/>
         </scene>
         <!--Wine Selection Table View Controller-->
         <scene sceneID="yXO-UB-hce">
@@ -107,11 +116,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WineCell" rowHeight="215" id="isc-1J-3qd" customClass="WineSelectionTableViewCell" customModule="WeinShop_Swift" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="WineCell" rowHeight="215" id="isc-1J-3qd" customClass="WineSelectionTableViewCell" customModule="WeinShop_Swift" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="390" height="215"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="isc-1J-3qd" id="aq3-8P-bfY">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="215"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="359.66666666666669" height="215"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6a0-Et-NeG">
@@ -154,13 +163,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lL-eT-XQt">
-                                            <rect key="frame" x="247" y="139" width="123" height="35"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Zum Produkt">
-                                                <color key="baseBackgroundColor" red="0.23685488099999999" green="0.29890021680000001" blue="0.43867129090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </buttonConfiguration>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="6a0-Et-NeG" firstAttribute="top" secondItem="aq3-8P-bfY" secondAttribute="topMargin" constant="1" id="3w4-om-Mxg"/>
@@ -168,14 +170,12 @@
                                         <constraint firstItem="DGh-Kz-iXc" firstAttribute="leading" secondItem="aq3-8P-bfY" secondAttribute="leading" constant="20" symbolic="YES" id="JBW-T7-D6Y"/>
                                         <constraint firstItem="DGh-Kz-iXc" firstAttribute="top" secondItem="6a0-Et-NeG" secondAttribute="bottom" constant="8" symbolic="YES" id="M0F-WJ-Nv0"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HWr-iy-iak" secondAttribute="trailing" constant="20" symbolic="YES" id="ORE-lG-nmd"/>
-                                        <constraint firstItem="0lL-eT-XQt" firstAttribute="bottom" secondItem="dUS-ns-OJ0" secondAttribute="bottom" id="OZ1-gO-mFU"/>
                                         <constraint firstItem="DGh-Kz-iXc" firstAttribute="trailing" secondItem="6a0-Et-NeG" secondAttribute="trailing" id="QWr-LO-K9y"/>
                                         <constraint firstItem="6a0-Et-NeG" firstAttribute="leading" secondItem="aq3-8P-bfY" secondAttribute="leadingMargin" id="QZh-7Q-uhn"/>
                                         <constraint firstItem="dUS-ns-OJ0" firstAttribute="leading" secondItem="r6Q-2l-dYo" secondAttribute="leading" id="W0D-8U-9bE"/>
-                                        <constraint firstItem="0lL-eT-XQt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dUS-ns-OJ0" secondAttribute="trailing" constant="8" symbolic="YES" id="Z1U-OZ-36Q"/>
                                         <constraint firstItem="vVl-Fi-Ol2" firstAttribute="leading" secondItem="r6Q-2l-dYo" secondAttribute="leading" id="djT-Io-J1p"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vVl-Fi-Ol2" secondAttribute="trailing" constant="20" symbolic="YES" id="edz-8L-gbN"/>
-                                        <constraint firstItem="0lL-eT-XQt" firstAttribute="trailing" secondItem="aq3-8P-bfY" secondAttribute="trailingMargin" id="hLB-8e-AOn"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DGh-Kz-iXc" secondAttribute="bottom" constant="5" id="fQp-qg-Oi2"/>
                                         <constraint firstItem="HWr-iy-iak" firstAttribute="top" secondItem="r6Q-2l-dYo" secondAttribute="bottom" constant="8" symbolic="YES" id="mcH-zh-kCs"/>
                                         <constraint firstItem="r6Q-2l-dYo" firstAttribute="leading" secondItem="6a0-Et-NeG" secondAttribute="trailing" constant="8" symbolic="YES" id="mos-wk-YVm"/>
                                         <constraint firstItem="dUS-ns-OJ0" firstAttribute="top" secondItem="vVl-Fi-Ol2" secondAttribute="bottom" constant="62" id="nc4-pg-tjg"/>
@@ -199,10 +199,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="SJ8-rR-bQV"/>
+                    <connections>
+                        <segue destination="K0C-Us-wn5" kind="show" identifier="DetailSegue" id="pco-3x-A8a"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgo-lV-ejB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2051" y="-586"/>
+            <point key="canvasLocation" x="2049.2307692307691" y="-586.49289099526061"/>
         </scene>
         <!--Wine Details View Controller-->
         <scene sceneID="fYH-ZW-LbR">
@@ -211,13 +214,103 @@
                     <view key="view" contentMode="scaleToFill" id="ORT-IZ-EFP">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5V3-1k-hD1">
+                                <rect key="frame" x="16" y="91" width="358" height="221"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="358" id="Jc3-fe-dDo"/>
+                                    <constraint firstAttribute="height" constant="221" id="NOO-n3-dlJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bildquelle: © speedysign | weingut-flaschenfotos.de" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzK-Pk-znZ">
+                                <rect key="frame" x="251" y="295" width="123" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="hvr-SG-POW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdV-f3-mjS">
+                                <rect key="frame" x="16" y="320" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcR-lP-50c">
+                                <rect key="frame" x="16" y="349" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBd-nX-CXp">
+                                <rect key="frame" x="16" y="378" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P08-d6-3PK">
+                                <rect key="frame" x="16.000000000000004" y="461" width="43.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOx-8u-IFh">
+                                <rect key="frame" x="216" y="454" width="158" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="In den Warenkorb">
+                                    <color key="baseBackgroundColor" red="0.23685488099999999" green="0.29890021680000001" blue="0.43867129090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCY-gH-04o">
+                                <rect key="frame" x="16.000000000000004" y="502.99999999999994" width="41.333333333333343" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Miy-Ei-oF1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Miy-Ei-oF1" firstAttribute="trailing" secondItem="ZzK-Pk-znZ" secondAttribute="trailing" constant="16" id="182-Ey-p3f"/>
+                            <constraint firstItem="Miy-Ei-oF1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bcR-lP-50c" secondAttribute="trailing" symbolic="YES" id="5HD-cJ-SFh"/>
+                            <constraint firstItem="LCY-gH-04o" firstAttribute="top" secondItem="P08-d6-3PK" secondAttribute="bottom" constant="21" id="6qa-UV-5Za"/>
+                            <constraint firstItem="ZzK-Pk-znZ" firstAttribute="top" secondItem="Miy-Ei-oF1" secondAttribute="top" constant="204" id="GIC-E4-ZB5"/>
+                            <constraint firstItem="Miy-Ei-oF1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aBd-nX-CXp" secondAttribute="trailing" symbolic="YES" id="ICb-9e-yaH"/>
+                            <constraint firstItem="Miy-Ei-oF1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LCY-gH-04o" secondAttribute="trailing" symbolic="YES" id="JZk-Su-JKC"/>
+                            <constraint firstItem="P08-d6-3PK" firstAttribute="top" secondItem="aBd-nX-CXp" secondAttribute="bottom" constant="62" id="O15-HJ-xfO"/>
+                            <constraint firstItem="bcR-lP-50c" firstAttribute="top" secondItem="BdV-f3-mjS" secondAttribute="bottom" constant="8" symbolic="YES" id="OGJ-uV-l2R"/>
+                            <constraint firstItem="5V3-1k-hD1" firstAttribute="top" secondItem="Miy-Ei-oF1" secondAttribute="top" id="Qmc-Kd-WZF"/>
+                            <constraint firstItem="5V3-1k-hD1" firstAttribute="leading" secondItem="Miy-Ei-oF1" secondAttribute="leading" constant="16" id="Qpk-6E-LnM"/>
+                            <constraint firstItem="ZOx-8u-IFh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="P08-d6-3PK" secondAttribute="trailing" constant="8" symbolic="YES" id="S0b-DL-JGn"/>
+                            <constraint firstItem="bcR-lP-50c" firstAttribute="leading" secondItem="5V3-1k-hD1" secondAttribute="leading" id="WPY-T0-L6A"/>
+                            <constraint firstItem="BdV-f3-mjS" firstAttribute="top" secondItem="5V3-1k-hD1" secondAttribute="bottom" constant="8" symbolic="YES" id="a7o-Ey-MYJ"/>
+                            <constraint firstItem="P08-d6-3PK" firstAttribute="leading" secondItem="5V3-1k-hD1" secondAttribute="leading" id="b3A-Ys-M3e"/>
+                            <constraint firstItem="aBd-nX-CXp" firstAttribute="leading" secondItem="5V3-1k-hD1" secondAttribute="leading" id="eXT-P9-d6y"/>
+                            <constraint firstItem="aBd-nX-CXp" firstAttribute="top" secondItem="bcR-lP-50c" secondAttribute="bottom" constant="8" symbolic="YES" id="fqd-jf-tKW"/>
+                            <constraint firstItem="ZzK-Pk-znZ" firstAttribute="leading" secondItem="Miy-Ei-oF1" secondAttribute="leading" constant="251" id="h7D-jf-ZkE"/>
+                            <constraint firstItem="LCY-gH-04o" firstAttribute="leading" secondItem="5V3-1k-hD1" secondAttribute="leading" id="hOb-Mf-1Fk"/>
+                            <constraint firstItem="Miy-Ei-oF1" firstAttribute="trailing" secondItem="5V3-1k-hD1" secondAttribute="trailing" constant="16" id="k5t-Qf-inN"/>
+                            <constraint firstItem="BdV-f3-mjS" firstAttribute="leading" secondItem="5V3-1k-hD1" secondAttribute="leading" id="l8p-Nz-eTn"/>
+                            <constraint firstItem="ZzK-Pk-znZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Miy-Ei-oF1" secondAttribute="leading" symbolic="YES" id="sHL-Ok-4Je"/>
+                            <constraint firstItem="ZOx-8u-IFh" firstAttribute="trailing" secondItem="5V3-1k-hD1" secondAttribute="trailing" id="sad-c6-fC1"/>
+                            <constraint firstItem="ZOx-8u-IFh" firstAttribute="centerY" secondItem="P08-d6-3PK" secondAttribute="centerY" id="vfm-dS-4Uv"/>
+                            <constraint firstItem="Miy-Ei-oF1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BdV-f3-mjS" secondAttribute="trailing" symbolic="YES" id="x9t-R5-EcD"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zIa-4O-gb7"/>
+                    <connections>
+                        <outlet property="detailDescription" destination="LCY-gH-04o" id="5zF-Gz-Oxe"/>
+                        <outlet property="detailImage" destination="5V3-1k-hD1" id="TRa-rX-FCU"/>
+                        <outlet property="detailName" destination="BdV-f3-mjS" id="F05-Tn-keL"/>
+                        <outlet property="detailPrice" destination="P08-d6-3PK" id="9HQ-bI-rfb"/>
+                        <outlet property="detailTaste" destination="aBd-nX-CXp" id="l6g-xp-Amw"/>
+                        <outlet property="detailYear" destination="bcR-lP-50c" id="d2p-wY-P6z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4p-al-GN7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2809" y="-700"/>
+            <point key="canvasLocation" x="2781.5384615384614" y="-586.49289099526061"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oIp-fT-7Aw">
