@@ -31,11 +31,8 @@ class SearchViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        
     }
-    
-    
-    
+
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchResultSegue" {
@@ -47,6 +44,7 @@ class SearchViewController: UIViewController {
             destination.wineTaste = wine.taste
             destination.winePrice = wine.price
             destination.wineDescription = wine.description
-            }
         }
+    }
+    
 }

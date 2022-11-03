@@ -15,7 +15,6 @@ class CategoryViewController: UIViewController {
         tableViewController.category = clickedCategory
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +26,6 @@ class CategoryViewController: UIViewController {
             if let destination = segue.destination as? WineSelectionTableViewController {
                 destination.category = clickedCategory!
             }
-                
         }
     }
     
@@ -46,6 +44,4 @@ class CategoryViewController: UIViewController {
         clickedCategory = "rosé"
         performSegue(withIdentifier: "CategoryListSegue", sender: self)
     }
-
-    
 }

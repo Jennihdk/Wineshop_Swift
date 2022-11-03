@@ -45,8 +45,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let selectedResult = searchResults[indexPath.row]
         performSegue(withIdentifier: "SearchResultSegue", sender: selectedResult)
     }
-    
-    
 }
 
 //MARK: - SearchBar
