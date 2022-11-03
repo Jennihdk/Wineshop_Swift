@@ -14,7 +14,6 @@ class WineSelectionTableViewController: UITableViewController {
     var category: String!
     var wineListByCategory: [Wine]!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,16 +24,8 @@ class WineSelectionTableViewController: UITableViewController {
                     self.wineList.append(w)
                 }
             }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
         }
-        
     }
-    
-    //MARK: - Functions
-    
-    
     
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,8 +40,6 @@ class WineSelectionTableViewController: UITableViewController {
             destination.wineDescription = wine.description
             }
         }
-
-    
 
     // MARK: - Table view data source
 

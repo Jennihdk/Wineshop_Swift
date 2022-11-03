@@ -23,7 +23,6 @@ class WineDetailsViewController: UIViewController {
     var winePrice: Float?
     var wineDescription: String?
     
-    
     var apiClient = APIClient()
     
     override func viewDidLoad() {
