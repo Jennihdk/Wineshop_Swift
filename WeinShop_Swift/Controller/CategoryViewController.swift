@@ -9,18 +9,22 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    //MARK: - Variables
     var clickedCategory: String?
     
-    func setCategory(tableViewController: WineSelectionTableViewController) {
-        tableViewController.category = clickedCategory
-    }
-    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
     }
     
+    //MARK: - Functions
+    func setCategory(tableViewController: WineSelectionTableViewController) {
+        tableViewController.category = clickedCategory
+    }
+    
+    //MARK: - Navigation and pass data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CategoryListSegue" {
             if let destination = segue.destination as? WineSelectionTableViewController {
@@ -29,7 +33,7 @@ class CategoryViewController: UIViewController {
         }
     }
     
-    
+    //MARK: - Actions
     @IBAction func btnRedwineClicked(_ sender: UIButton) {
         clickedCategory = "rot"
         performSegue(withIdentifier: "CategoryListSegue", sender: self)

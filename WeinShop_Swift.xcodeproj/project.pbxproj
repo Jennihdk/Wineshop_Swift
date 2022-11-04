@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92601A7D29140A5700F69596 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92601A7C29140A5600F69596 /* CartTableViewCell.swift */; };
+		928400202915043400B5361D /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9284001E2915043400B5361D /* CartItem+CoreDataClass.swift */; };
+		928400212915043400B5361D /* CartItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9284001F2915043400B5361D /* CartItem+CoreDataProperties.swift */; };
 		92C3429528FE7778005D5BC2 /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3429428FE7778005D5BC2 /* Wine.swift */; };
 		92D766E62912A684006648CE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D766E52912A684006648CE /* SearchTableViewCell.swift */; };
 		92DEABFC28FD45A200A311FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DEABFB28FD45A200A311FE /* AppDelegate.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92601A7C29140A5600F69596 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		9284001E2915043400B5361D /* CartItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9284001F2915043400B5361D /* CartItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		92C3429428FE7778005D5BC2 /* Wine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
 		92D766E52912A684006648CE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		92DEABF828FD45A200A311FE /* WeinShop_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeinShop_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +92,6 @@
 				92DEABFD28FD45A200A311FE /* SceneDelegate.swift */,
 				92DEAC0728FD45A300A311FE /* Assets.xcassets */,
 				92DEAC0C28FD45A300A311FE /* Info.plist */,
-				92DEAC0428FD45A200A311FE /* WeinShop_Swift.xcdatamodeld */,
 			);
 			path = WeinShop_Swift;
 			sourceTree = "<group>";
@@ -103,6 +108,9 @@
 		92DEAC1D28FD58A400A311FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92DEAC0428FD45A200A311FE /* WeinShop_Swift.xcdatamodeld */,
+				9284001F2915043400B5361D /* CartItem+CoreDataProperties.swift */,
+				9284001E2915043400B5361D /* CartItem+CoreDataClass.swift */,
 				92C3429428FE7778005D5BC2 /* Wine.swift */,
 			);
 			path = Model;
@@ -133,6 +141,7 @@
 			children = (
 				92D766E52912A684006648CE /* SearchTableViewCell.swift */,
 				92DEAC1A28FD588600A311FE /* WineSelectionTableViewCell.swift */,
+				92601A7C29140A5600F69596 /* CartTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -216,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928400212915043400B5361D /* CartItem+CoreDataProperties.swift in Sources */,
 				92DEAC1528FD570E00A311FE /* SearchViewController.swift in Sources */,
 				92DEAC1328FD56F400A311FE /* CategoryViewController.swift in Sources */,
 				92DEAC1928FD584000A311FE /* WineSelectionTableViewController.swift in Sources */,
@@ -223,7 +233,9 @@
 				92DEAC0628FD45A200A311FE /* WeinShop_Swift.xcdatamodeld in Sources */,
 				92DEAC2A28FD5E7100A311FE /* APIClient.swift in Sources */,
 				92C3429528FE7778005D5BC2 /* Wine.swift in Sources */,
+				92601A7D29140A5700F69596 /* CartTableViewCell.swift in Sources */,
 				92DEABFC28FD45A200A311FE /* AppDelegate.swift in Sources */,
+				928400202915043400B5361D /* CartItem+CoreDataClass.swift in Sources */,
 				92D766E62912A684006648CE /* SearchTableViewCell.swift in Sources */,
 				92DEAC1728FD578500A311FE /* CartViewController.swift in Sources */,
 				92DEAC1B28FD588600A311FE /* WineSelectionTableViewCell.swift in Sources */,

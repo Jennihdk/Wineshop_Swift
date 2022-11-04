@@ -1,19 +1,23 @@
 //
-//  SearchTableViewCell.swift
+//  CartTableViewCell.swift
 //  WeinShop_Swift
 //
-//  Created by Jennifer Hedtke on 02.11.22.
+//  Created by Jennifer Hedtke on 03.11.22.
 //
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell {
+class CartTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var yearLbl: UILabel!
     @IBOutlet weak var tasteLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var quantityLbl: UILabel!
+    @IBOutlet weak var btnRemoveItem: UIButton!
+    @IBOutlet weak var btnAddItem: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

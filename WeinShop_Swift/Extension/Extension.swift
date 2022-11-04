@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-//MARK: - TableView
+//MARK: - SearchTableView
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,3 +67,17 @@ extension SearchViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
 }
+
+//MARK: - CartTableView
+/*extension CartViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cartList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+}*/

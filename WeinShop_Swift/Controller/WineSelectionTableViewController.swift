@@ -9,11 +9,13 @@ import UIKit
 
 class WineSelectionTableViewController: UITableViewController {
     
+    //MARK: - Variables
     var apiClient = APIClient()
     var wineList = [Wine]()
     var category: String!
     var wineListByCategory: [Wine]!
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +29,7 @@ class WineSelectionTableViewController: UITableViewController {
         }
     }
     
-    // MARK: Navigation
+    // MARK: Navigation and pass data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailSegue" {
             guard let destination = segue.destination as? WineDetailsViewController else { return }
@@ -41,7 +43,7 @@ class WineSelectionTableViewController: UITableViewController {
             }
         }
 
-    // MARK: - Table view data source
+    // MARK: - TableView Datasource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

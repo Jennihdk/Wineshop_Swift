@@ -9,6 +9,7 @@ import UIKit
 
 class WineSelectionTableViewCell: UITableViewCell {
 
+    //MARK: - Outlets
     @IBOutlet weak var productImgView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var yearLbl: UILabel!

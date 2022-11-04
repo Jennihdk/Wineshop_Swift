@@ -9,6 +9,7 @@ import UIKit
 
 class WineDetailsViewController: UIViewController {
     
+    //MARK: - Variables and Outlets
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailName: UILabel!
     @IBOutlet weak var detailYear: UILabel!
@@ -25,6 +26,7 @@ class WineDetailsViewController: UIViewController {
     
     var apiClient = APIClient()
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,4 +43,11 @@ class WineDetailsViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - Actions
+    @IBAction func btnAddToCart(_ sender: UIButton) {
+        
+    }
+    
+    
 }

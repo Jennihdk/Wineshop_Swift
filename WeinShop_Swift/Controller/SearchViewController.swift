@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    //MARK: - Properties
+    //MARK: - Variables and Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,7 +33,7 @@ class SearchViewController: UIViewController {
         }
     }
 
-    //MARK: - Navigation
+    //MARK: - Navigation and pass data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchResultSegue" {
             guard let destination = segue.destination as? WineDetailsViewController else { return }
