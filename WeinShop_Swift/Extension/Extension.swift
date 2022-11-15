@@ -58,7 +58,6 @@ extension SearchViewController: UISearchBarDelegate {
             searchResults = wineList
         } else {
             for wine in wineList {
-                print(wine.productName)
                 if wine.productName!.lowercased().contains(searchText.lowercased()) {
                     searchResults.append(wine)
                 }
@@ -69,15 +68,66 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 //MARK: - CartTableView
-/*extension CartViewController: UITableViewDataSource {
+extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cartList.count
+        if cartItems == nil {
+            return 0
+        } else {
+            return cartItems.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartTableViewCell
+        
+        let item = cartItems[indexPath.row]
+        cell.imgView.image = UIImage(data: item.image!)
+        cell.nameLbl.text = item.name
+        cell.tasteLbl.text = item.taste
+        cell.yearLbl.text = item.year.description
+        cell.priceLbl.text = String(format: "%.2f", item.singlePrice)
+        cell.quantityLbl.text = item.quantity.description
+        
+        cell.btnDeleteItem.tag = indexPath.row
+        cell.btnDeleteItem.addTarget(self, action: #selector(deleteItem(_ :)), for: .touchUpInside)
+        cell.btnAddItem.tag = indexPath.row
+        cell.btnAddItem.addTarget(self, action: #selector(increase(_ :)), for: .touchUpInside)
+        cell.btnRemoveItem.tag = indexPath.row
+        cell.btnRemoveItem.addTarget(self, action: #selector(decrease(_ :)), for: .touchUpInside)
+    
+        return cell
     }
     
+    @objc func deleteItem(_ sender: UIButton){
+        let itemToDelete = cartItems[sender.tag]
+        context.delete(itemToDelete)
+        
+        saveCurrentCart()
+        fetchWine()
+        tableView.deleteRows(at:[IndexPath(row:sender.tag,section:0)],with:.none)
+    }
     
-}*/
+    @objc func increase(_ sender: UIButton) {
+        let itemToIncrease = cartItems[sender.tag]
+        if itemToIncrease.quantity >= 1 {
+            itemToIncrease.quantity += 1
+            print(itemToIncrease.quantity)
+        }
+        
+        saveCurrentCart()
+        tableView.reloadData()
+    }
+    
+    @objc func decrease(_ sender: UIButton) {
+        let itemToDecrease = cartItems[sender.tag]
+        if itemToDecrease.quantity >= 1 {
+            itemToDecrease.quantity -= 1
+        }
+        
+        saveCurrentCart()
+        tableView.reloadData()
+    }
+}
+
+

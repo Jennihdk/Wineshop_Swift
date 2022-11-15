@@ -2,7 +2,7 @@
 //  CartItem+CoreDataClass.swift
 //  WeinShop_Swift
 //
-//  Created by Jennifer Hedtke on 04.11.22.
+//  Created by Jennifer Hedtke on 08.11.22.
 //
 //
 

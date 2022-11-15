@@ -18,6 +18,7 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var quantityLbl: UILabel!
     @IBOutlet weak var btnRemoveItem: UIButton!
     @IBOutlet weak var btnAddItem: UIButton!
+    @IBOutlet weak var btnDeleteItem: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,5 +30,8 @@ class CartTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
 
 }

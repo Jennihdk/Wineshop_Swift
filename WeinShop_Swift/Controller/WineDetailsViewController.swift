@@ -17,6 +17,7 @@ class WineDetailsViewController: UIViewController {
     @IBOutlet weak var detailPrice: UILabel!
     @IBOutlet weak var detailDescription: UILabel!
     
+    //Variables for DetailView
     var wineImage: String?
     var wineName: String?
     var wineYear: Int?
@@ -24,6 +25,10 @@ class WineDetailsViewController: UIViewController {
     var winePrice: Float?
     var wineDescription: String?
     
+    //CoreData
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //API
     var apiClient = APIClient()
     
     //MARK: - viewDidLoad
@@ -44,10 +49,40 @@ class WineDetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - Functions
+    
+    
     //MARK: - Actions
     @IBAction func btnAddToCart(_ sender: UIButton) {
         
+        let cartItem = CartItem(context: context)
+        let vc = CartViewController()
+        if cartItem.inCart == true {
+            print("Cartitem already in cart")
+            cartItem.quantity += 1
+            context.saveIfChanged()
+            
+        } else {
+            let image: UIImage = detailImage.image!
+            let cartImage = image.jpegData(compressionQuality: 1.0)
+            cartItem.image = cartImage
+            cartItem.name = detailName.text
+            cartItem.taste = detailTaste.text
+            cartItem.year = Int16(detailYear.text!)!
+            cartItem.singlePrice = Float(detailPrice.text!)!
+            cartItem.quantity += 1
+            cartItem.inCart = true
+            do {
+                try context.save()
+            } catch {
+                print("Saving context failed")
+            }
+           // NotificationCenter.default.post(name: NSNotification.Name.init("de.cartItemToCart"), object: cartItem)
+            
+            print("Cartitem does not contain cartitem")
+        }
+        
+        
+        
     }
-    
-    
 }
