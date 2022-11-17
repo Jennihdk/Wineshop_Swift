@@ -44,7 +44,6 @@ class WineSelectionTableViewController: UITableViewController {
         }
 
     // MARK: - TableView Datasource
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -52,7 +51,6 @@ class WineSelectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wineList.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WineCell", for: indexPath) as! WineSelectionTableViewCell
@@ -62,7 +60,7 @@ class WineSelectionTableViewController: UITableViewController {
         cell.nameLbl.text = wine.productName
         cell.yearLbl.text = wine.year?.description
         cell.tasteLbl.text = wine.taste
-        cell.priceLbl.text = String(format: "%.2f", wine.price!)
+        cell.priceLbl.text = String(format: "%.2f €", wine.price!)
                 
         guard let url = URL(string: wine.productImg!) else { return cell }
         self.apiClient.getImage(imageUrl: url){ image in

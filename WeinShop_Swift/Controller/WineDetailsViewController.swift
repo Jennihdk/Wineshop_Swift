@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class WineDetailsViewController: UIViewController {
     
@@ -38,7 +39,7 @@ class WineDetailsViewController: UIViewController {
         detailName.text = wineName
         detailYear.text = wineYear?.description
         detailTaste.text = wineTaste
-        detailPrice.text = String(format: "%.2f", winePrice!)
+        detailPrice.text = String(format: "%.2f €", winePrice!)
         detailDescription.text = wineDescription
         
         guard let url = URL(string: wineImage!) else { return }
@@ -50,39 +51,49 @@ class WineDetailsViewController: UIViewController {
     }
     
     //MARK: - Functions
-    
-    
-    //MARK: - Actions
-    @IBAction func btnAddToCart(_ sender: UIButton) {
+    func updateCart() {
+        /*This function checks whether an item is already in the shopping cart. This is recognized with the name of the item
+         *If the item is in the shopping cart, the number increases.
+         *Otherwise a new article will be added
+        */
+        let fetchRequest: NSFetchRequest<CartItem> = CartItem.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name == %@", detailName.text!)
         
-        let cartItem = CartItem(context: context)
-        let vc = CartViewController()
-        if cartItem.inCart == true {
-            print("Cartitem already in cart")
-            cartItem.quantity += 1
-            context.saveIfChanged()
-            
-        } else {
-            let image: UIImage = detailImage.image!
-            let cartImage = image.jpegData(compressionQuality: 1.0)
-            cartItem.image = cartImage
-            cartItem.name = detailName.text
-            cartItem.taste = detailTaste.text
-            cartItem.year = Int16(detailYear.text!)!
-            cartItem.singlePrice = Float(detailPrice.text!)!
-            cartItem.quantity += 1
-            cartItem.inCart = true
+        do {
+            let cartList = try context.fetch(fetchRequest)
+            if cartList.count > 0 {
+                let cartItem = cartList.first
+                cartItem!.quantity += 1
+                cartItem!.totalPrice = cartItem!.singlePrice * Float(cartItem!.quantity)
+            } else {
+                let cartItem = CartItem(context: context)
+                let image: UIImage = detailImage.image!
+                let cartImage = image.jpegData(compressionQuality: 1.0)
+                cartItem.image = cartImage
+                cartItem.name = detailName.text
+                cartItem.taste = detailTaste.text
+                cartItem.year = Int16(detailYear.text!)!
+                
+                //removes the euro sign to convert to a float
+                let eurozeichen = detailPrice.text!.replacingOccurrences(of: " €", with: "")
+                cartItem.singlePrice = Float(eurozeichen)!
+                
+                cartItem.quantity = 1
+                cartItem.totalPrice = cartItem.singlePrice * Float(cartItem.quantity)
+            }
             do {
                 try context.save()
             } catch {
                 print("Saving context failed")
             }
-           // NotificationCenter.default.post(name: NSNotification.Name.init("de.cartItemToCart"), object: cartItem)
-            
-            print("Cartitem does not contain cartitem")
+        } catch {
+            print("Could not fetch cart")
         }
-        
-        
-        
+    }
+    
+    
+    //MARK: - Actions
+    @IBAction func btnAddToCart(_ sender: UIButton) {
+        updateCart()
     }
 }

@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import CoreData
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     //MARK: - Variables and Outlets
     @IBOutlet weak var tableView: UITableView!
     
     var cartItems: [CartItem]!
-    var cartItem = CartItem()
+    var selectedItem: Wine?
     
-    //CoreData Context
+    //CoreData & fetchResult
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     //API
@@ -27,15 +28,10 @@ class CartViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
-        
-        //NotificationCenter.default.addObserver(self, selector: #selector(addCartItem(_ :)), name: NSNotification.Name.init("de.cartItemToCart"), object: nil)
-        
-        fetchWine()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(cartItems)
+        fetchWine()
     }
     
     //MARK: - Functions
@@ -58,21 +54,6 @@ class CartViewController: UIViewController {
         } catch {
             print("Saving context failed")
         }
-    }
-    
-    //Pass Data
-    @objc func addCartItem(_ notification: NSNotification) {
-        guard let iteminCart = notification.object as? CartItem else { return }
-        
-        if iteminCart.inCart == true {
-            iteminCart.quantity += 1
-            print("Item alredy exists in cart")
-        } else {
-            print("Item doesnt exists in cart")
-        }
-        saveCurrentCart()
-        tableView.reloadData()
-        
     }
     
     //MARK: - Actions

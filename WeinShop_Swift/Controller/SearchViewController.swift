@@ -46,5 +46,4 @@ class SearchViewController: UIViewController {
             destination.wineDescription = wine.description
         }
     }
-    
 }

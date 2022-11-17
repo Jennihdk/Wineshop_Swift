@@ -29,7 +29,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let result = searchResults[indexPath.row]
         cell.nameLbl.text = result.productName
         cell.tasteLbl.text = result.taste
-        cell.priceLbl.text = String(format: "%.2f", result.price!)
+        cell.priceLbl.text = String(format: "%.2f €", result.price!)
         
         guard let url = URL(string: result.productImg!) else { return cell }
         self.apiClient.getImage(imageUrl: url){ image in
@@ -86,7 +86,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         cell.nameLbl.text = item.name
         cell.tasteLbl.text = item.taste
         cell.yearLbl.text = item.year.description
-        cell.priceLbl.text = String(format: "%.2f", item.singlePrice)
+        cell.priceLbl.text = String(format: "%.2f €", item.singlePrice)
         cell.quantityLbl.text = item.quantity.description
         
         cell.btnDeleteItem.tag = indexPath.row
