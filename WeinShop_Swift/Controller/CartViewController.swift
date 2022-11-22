@@ -44,8 +44,6 @@ class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
             totalprice += price * quantity
         }
         totalPriceLbl.text = String(format: "%.2f €", totalprice)
-        saveCurrentCart()
-        tableView.reloadData()
     }
     
     //CoreData Functions

@@ -103,17 +103,17 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     @objc func deleteItem(_ sender: UIButton){
         let itemToDelete = cartItems![sender.tag]
         context.delete(itemToDelete)
-        
         saveCurrentCart()
         fetchWine()
         tableView.deleteRows(at: [IndexPath(row: sender.tag, section:0)], with: .none)
+        totalPrice()
     }
     
     //Increase the number of items in the shopping cart
     @objc func increase(_ sender: UIButton) {
         let itemToIncrease = cartItems![sender.tag]
         itemToIncrease.quantity += 1
-        
+        totalPrice()
         saveCurrentCart()
         tableView.reloadData()
     }
@@ -128,10 +128,20 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
             fetchWine()
             tableView.deleteRows(at: [IndexPath(row: sender.tag, section:0)], with: .none)
         } 
-        
+        totalPrice()
         saveCurrentCart()
         tableView.reloadData()
     }
 }
+
+/*extension CartViewController: NSFetchedResultsControllerDelegate {
+    
+    // Wird ausgelöst, wenn Inhalt (Context) sich verändert:
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
+    }
+    
+    
+}*/
 
 
