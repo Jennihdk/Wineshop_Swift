@@ -9,7 +9,14 @@
 /* Begin PBXBuildFile section */
 		92499CC3291A637E00611714 /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92499CC1291A637E00611714 /* CartItem+CoreDataClass.swift */; };
 		92499CC4291A637E00611714 /* CartItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92499CC2291A637E00611714 /* CartItem+CoreDataProperties.swift */; };
+		9259BF99292CF513001568AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259BF98292CF513001568AE /* ProfileViewController.swift */; };
 		92601A7D29140A5700F69596 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92601A7C29140A5600F69596 /* CartTableViewCell.swift */; };
+		9283551129265DCC009E44C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9283551029265DCC009E44C9 /* GoogleService-Info.plist */; };
+		92835515292660B3009E44C9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 92835514292660B3009E44C9 /* FirebaseAuth */; };
+		92835517292660CD009E44C9 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 92835516292660CD009E44C9 /* FirebaseFirestoreSwift */; };
+		92835519292660E2009E44C9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 92835518292660E2009E44C9 /* FirebaseStorage */; };
+		9283551B2926618D009E44C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283551A2926618D009E44C9 /* LoginViewController.swift */; };
+		9283551D2926690C009E44C9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9283551C2926690C009E44C9 /* RegisterViewController.swift */; };
 		9284002529152F8C00B5361D /* BoughtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9284002429152F8C00B5361D /* BoughtViewController.swift */; };
 		92C3429528FE7778005D5BC2 /* Wine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C3429428FE7778005D5BC2 /* Wine.swift */; };
 		92D766E62912A684006648CE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D766E52912A684006648CE /* SearchTableViewCell.swift */; };
@@ -32,7 +39,11 @@
 /* Begin PBXFileReference section */
 		92499CC1291A637E00611714 /* CartItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92499CC2291A637E00611714 /* CartItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9259BF98292CF513001568AE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		92601A7C29140A5600F69596 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		9283551029265DCC009E44C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9283551A2926618D009E44C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9283551C2926690C009E44C9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9284002429152F8C00B5361D /* BoughtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoughtViewController.swift; sourceTree = "<group>"; };
 		92C3429428FE7778005D5BC2 /* Wine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wine.swift; sourceTree = "<group>"; };
 		92D766E52912A684006648CE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -59,19 +70,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92835515292660B3009E44C9 /* FirebaseAuth in Frameworks */,
+				92835517292660CD009E44C9 /* FirebaseFirestoreSwift in Frameworks */,
+				92835519292660E2009E44C9 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9220E263291D05B500D7255F /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
 		92DEABEF28FD45A200A311FE = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +98,6 @@
 		92DEABFA28FD45A200A311FE /* WeinShop_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				9220E263291D05B500D7255F /* CoreData */,
 				92E5A10329129C44002E7CC3 /* Extension */,
 				92DEAC2028FD58BF00A311FE /* Cells */,
 				92DEAC1F28FD58B800A311FE /* Controller */,
@@ -102,6 +108,7 @@
 				92DEABFD28FD45A200A311FE /* SceneDelegate.swift */,
 				92DEAC0728FD45A300A311FE /* Assets.xcassets */,
 				92DEAC0C28FD45A300A311FE /* Info.plist */,
+				9283551029265DCC009E44C9 /* GoogleService-Info.plist */,
 			);
 			path = WeinShop_Swift;
 			sourceTree = "<group>";
@@ -137,12 +144,15 @@
 		92DEAC1F28FD58B800A311FE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92DEAC2128FD59C400A311FE /* WineDetailsViewController.swift */,
-				92DEAC1828FD584000A311FE /* WineSelectionTableViewController.swift */,
-				92DEAC1628FD578500A311FE /* CartViewController.swift */,
-				92DEAC1428FD570E00A311FE /* SearchViewController.swift */,
+				9283551A2926618D009E44C9 /* LoginViewController.swift */,
+				9283551C2926690C009E44C9 /* RegisterViewController.swift */,
 				92DEAC1228FD56F400A311FE /* CategoryViewController.swift */,
+				92DEAC1828FD584000A311FE /* WineSelectionTableViewController.swift */,
+				92DEAC1428FD570E00A311FE /* SearchViewController.swift */,
+				92DEAC2128FD59C400A311FE /* WineDetailsViewController.swift */,
+				92DEAC1628FD578500A311FE /* CartViewController.swift */,
 				9284002429152F8C00B5361D /* BoughtViewController.swift */,
+				9259BF98292CF513001568AE /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +191,11 @@
 			dependencies = (
 			);
 			name = WeinShop_Swift;
+			packageProductDependencies = (
+				92835514292660B3009E44C9 /* FirebaseAuth */,
+				92835516292660CD009E44C9 /* FirebaseFirestoreSwift */,
+				92835518292660E2009E44C9 /* FirebaseStorage */,
+			);
 			productName = WeinShop_Swift;
 			productReference = 92DEABF828FD45A200A311FE /* WeinShop_Swift.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +224,9 @@
 				Base,
 			);
 			mainGroup = 92DEABEF28FD45A200A311FE;
+			packageReferences = (
+				9283551229265E5F009E44C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 92DEABF928FD45A200A311FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92DEAC0B28FD45A300A311FE /* LaunchScreen.storyboard in Resources */,
+				9283551129265DCC009E44C9 /* GoogleService-Info.plist in Resources */,
 				92DEAC0828FD45A300A311FE /* Assets.xcassets in Resources */,
 				92DEAC0328FD45A200A311FE /* Main.storyboard in Resources */,
 			);
@@ -236,9 +255,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9283551B2926618D009E44C9 /* LoginViewController.swift in Sources */,
 				92499CC4291A637E00611714 /* CartItem+CoreDataProperties.swift in Sources */,
+				9259BF99292CF513001568AE /* ProfileViewController.swift in Sources */,
 				92DEAC1528FD570E00A311FE /* SearchViewController.swift in Sources */,
 				92DEAC1328FD56F400A311FE /* CategoryViewController.swift in Sources */,
+				9283551D2926690C009E44C9 /* RegisterViewController.swift in Sources */,
 				92DEAC1928FD584000A311FE /* WineSelectionTableViewController.swift in Sources */,
 				92E5A10529129C5D002E7CC3 /* Extension.swift in Sources */,
 				92499CC3291A637E00611714 /* CartItem+CoreDataClass.swift in Sources */,
@@ -468,6 +490,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9283551229265E5F009E44C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92835514292660B3009E44C9 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9283551229265E5F009E44C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		92835516292660CD009E44C9 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9283551229265E5F009E44C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		92835518292660E2009E44C9 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9283551229265E5F009E44C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		92DEAC0428FD45A200A311FE /* WeinShop_Swift.xcdatamodeld */ = {

@@ -74,14 +74,14 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         if cartItems == nil {
             return 0
         } else {
-            return cartItems.count
+            return cartItems!.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartTableViewCell
         
-        let item = cartItems[indexPath.row]
+        let item = cartItems![indexPath.row]
         cell.imgView.image = UIImage(data: item.image!)
         cell.nameLbl.text = item.name
         cell.tasteLbl.text = item.taste
@@ -99,31 +99,35 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    //Delete items from the shopping cart
     @objc func deleteItem(_ sender: UIButton){
-        let itemToDelete = cartItems[sender.tag]
+        let itemToDelete = cartItems![sender.tag]
         context.delete(itemToDelete)
         
         saveCurrentCart()
         fetchWine()
-        tableView.deleteRows(at:[IndexPath(row:sender.tag,section:0)],with:.none)
+        tableView.deleteRows(at: [IndexPath(row: sender.tag, section:0)], with: .none)
     }
     
+    //Increase the number of items in the shopping cart
     @objc func increase(_ sender: UIButton) {
-        let itemToIncrease = cartItems[sender.tag]
-        if itemToIncrease.quantity >= 1 {
-            itemToIncrease.quantity += 1
-            print(itemToIncrease.quantity)
-        }
+        let itemToIncrease = cartItems![sender.tag]
+        itemToIncrease.quantity += 1
         
         saveCurrentCart()
         tableView.reloadData()
     }
     
+    //Reduce the number of items in the shopping cart
     @objc func decrease(_ sender: UIButton) {
-        let itemToDecrease = cartItems[sender.tag]
-        if itemToDecrease.quantity >= 1 {
+        let itemToDecrease = cartItems![sender.tag]
+        if itemToDecrease.quantity > 1 {
             itemToDecrease.quantity -= 1
-        }
+        } else {
+            context.delete(itemToDecrease)
+            fetchWine()
+            tableView.deleteRows(at: [IndexPath(row: sender.tag, section:0)], with: .none)
+        } 
         
         saveCurrentCart()
         tableView.reloadData()

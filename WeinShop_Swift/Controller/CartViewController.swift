@@ -12,9 +12,9 @@ class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     //MARK: - Variables and Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var totalPriceLbl: UILabel!
     
-    var cartItems: [CartItem]!
-    var selectedItem: Wine?
+    var cartItems: [CartItem]?
     
     //CoreData & fetchResult
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -32,11 +32,23 @@ class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         fetchWine()
+        totalPrice()
     }
     
     //MARK: - Functions
+    func totalPrice(){
+        var totalprice: Float = 0.0
+        for i in cartItems! {
+            let price = Float(i.singlePrice)
+            let quantity = Float(i.quantity)
+            totalprice += price * quantity
+        }
+        totalPriceLbl.text = String(format: "%.2f €", totalprice)
+        saveCurrentCart()
+        tableView.reloadData()
+    }
     
-    //CoreData
+    //CoreData Functions
     func fetchWine() {
         do {
             self.cartItems = try context.fetch(CartItem.fetchRequest())
@@ -57,7 +69,7 @@ class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     //MARK: - Actions
-    @IBAction func btnBuyClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "BoughtSegue", sender: nil)
+    @IBAction func btnCheckOutClicked(_ sender: UIButton) {
+        
     }
 }

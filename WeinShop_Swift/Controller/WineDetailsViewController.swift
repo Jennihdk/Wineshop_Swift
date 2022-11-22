@@ -26,6 +26,9 @@ class WineDetailsViewController: UIViewController {
     var winePrice: Float?
     var wineDescription: String?
     
+    //
+    var cart = CartViewController()
+    
     //CoreData
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -64,7 +67,7 @@ class WineDetailsViewController: UIViewController {
             if cartList.count > 0 {
                 let cartItem = cartList.first
                 cartItem!.quantity += 1
-                cartItem!.totalPrice = cartItem!.singlePrice * Float(cartItem!.quantity)
+                //cartItem!.totalPrice = cartItem!.singlePrice * Float(cartItem!.quantity)
             } else {
                 let cartItem = CartItem(context: context)
                 let image: UIImage = detailImage.image!
@@ -79,7 +82,7 @@ class WineDetailsViewController: UIViewController {
                 cartItem.singlePrice = Float(eurozeichen)!
                 
                 cartItem.quantity = 1
-                cartItem.totalPrice = cartItem.singlePrice * Float(cartItem.quantity)
+                //cartItem.totalPrice = cartItem.singlePrice * Float(cartItem.quantity)
             }
             do {
                 try context.save()
