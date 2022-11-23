@@ -134,14 +134,4 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-/*extension CartViewController: NSFetchedResultsControllerDelegate {
-    
-    // Wird ausgelöst, wenn Inhalt (Context) sich verändert:
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.reloadData()
-    }
-    
-    
-}*/
-
 

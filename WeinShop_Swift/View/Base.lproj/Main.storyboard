@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PZq-dn-hkF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X08-6M-Htc">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -407,7 +407,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="signUpBtnClicked:" destination="eIr-DY-JNJ" eventType="touchUpInside" id="rfP-YP-2BW"/>
-                                    <segue destination="PZq-dn-hkF" kind="presentation" identifier="SignUpSegue" modalPresentationStyle="fullScreen" id="V9b-P5-9JW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registrieren" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imf-ts-agT">
@@ -458,13 +457,14 @@
                             <constraint firstItem="aXs-bQ-ak9" firstAttribute="top" secondItem="8xq-cd-nFP" secondAttribute="bottom" constant="30" id="wi7-sE-s38"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="WFS-uy-5Aj"/>
+                    <navigationItem key="navigationItem" id="hP0-K4-AfL"/>
                     <connections>
                         <outlet property="emailTF" destination="WAP-Rq-97n" id="oD8-h4-r6V"/>
                         <outlet property="firstNameTF" destination="W8I-F8-cZN" id="bPf-Ty-1iq"/>
                         <outlet property="lastNameTF" destination="8xq-cd-nFP" id="Zy2-w1-61d"/>
                         <outlet property="passwordRepeatTF" destination="okt-ft-TJ0" id="yOQ-v9-1Zn"/>
                         <outlet property="passwordTF" destination="vSY-op-Drb" id="99W-8C-RqK"/>
+                        <segue destination="PZq-dn-hkF" kind="presentation" identifier="SignUpSegue" modalPresentationStyle="fullScreen" id="NlS-uN-0wG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J45-7d-UaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -550,7 +550,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exv-fr-9ke">
-                                <rect key="frame" x="67.000000000000014" y="775" width="240.33333333333337" height="35"/>
+                                <rect key="frame" x="67.000000000000014" y="514" width="240.33333333333337" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="a3W-Xv-94L"/>
                                 </constraints>
@@ -570,12 +570,23 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKb-TE-H5q">
+                                <rect key="frame" x="67" y="774" width="256" height="35"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Überspringen"/>
+                                <connections>
+                                    <segue destination="PZq-dn-hkF" kind="presentation" modalPresentationStyle="fullScreen" id="JQB-dx-D7V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JwH-xz-mhs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vY9-oh-9ua" firstAttribute="trailing" secondItem="JwH-xz-mhs" secondAttribute="trailing" id="2eY-WE-riT"/>
+                            <constraint firstItem="exv-fr-9ke" firstAttribute="leading" secondItem="cB1-Uv-ilf" secondAttribute="leading" id="3fp-c5-tZQ"/>
                             <constraint firstItem="JwH-xz-mhs" firstAttribute="trailing" secondItem="k4a-gW-YTw" secondAttribute="trailing" id="4zt-ia-0Bv"/>
+                            <constraint firstItem="JwH-xz-mhs" firstAttribute="trailing" secondItem="CKb-TE-H5q" secondAttribute="trailing" constant="67" id="887-K0-2wi"/>
                             <constraint firstItem="JwH-xz-mhs" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3qc-Dm-8y3" secondAttribute="trailing" symbolic="YES" id="CzB-cb-GCU"/>
                             <constraint firstItem="JwH-xz-mhs" firstAttribute="bottom" secondItem="k4a-gW-YTw" secondAttribute="bottom" constant="-34" id="DfS-bR-VLq"/>
                             <constraint firstItem="JwH-xz-mhs" firstAttribute="trailing" secondItem="JI1-uu-kWZ" secondAttribute="trailing" constant="105" id="FzP-ap-s1G"/>
@@ -585,18 +596,20 @@
                             <constraint firstItem="exv-fr-9ke" firstAttribute="leading" secondItem="E5u-QR-SEG" secondAttribute="leading" id="O6s-eY-l2J"/>
                             <constraint firstItem="E5u-QR-SEG" firstAttribute="top" secondItem="JI1-uu-kWZ" secondAttribute="bottom" constant="120" id="Q8G-uW-FsR"/>
                             <constraint firstItem="cB1-Uv-ilf" firstAttribute="leading" secondItem="E5u-QR-SEG" secondAttribute="leading" id="Qek-zp-Wh0"/>
+                            <constraint firstItem="CKb-TE-H5q" firstAttribute="leading" secondItem="JwH-xz-mhs" secondAttribute="leading" constant="67" id="Qxg-hm-h3P"/>
                             <constraint firstItem="JwH-xz-mhs" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cB1-Uv-ilf" secondAttribute="trailing" symbolic="YES" id="S1F-Hf-TF9"/>
                             <constraint firstItem="JwH-xz-mhs" firstAttribute="trailing" secondItem="E5u-QR-SEG" secondAttribute="trailing" constant="67" id="YHH-fU-hji"/>
                             <constraint firstItem="3qc-Dm-8y3" firstAttribute="top" secondItem="E5u-QR-SEG" secondAttribute="bottom" constant="20" id="YQJ-l8-xbb"/>
                             <constraint firstItem="JI1-uu-kWZ" firstAttribute="leading" secondItem="JwH-xz-mhs" secondAttribute="leading" constant="106" id="aQw-pn-fTy"/>
                             <constraint firstItem="5C2-JV-0jq" firstAttribute="top" secondItem="cB1-Uv-ilf" secondAttribute="bottom" constant="8" symbolic="YES" id="akb-GX-WlM"/>
                             <constraint firstItem="vY9-oh-9ua" firstAttribute="top" secondItem="pNe-hs-gzj" secondAttribute="top" id="cEu-HI-BN8"/>
-                            <constraint firstItem="exv-fr-9ke" firstAttribute="top" secondItem="cB1-Uv-ilf" secondAttribute="bottom" constant="361" id="fUS-Mo-wDj"/>
+                            <constraint firstItem="exv-fr-9ke" firstAttribute="top" secondItem="cB1-Uv-ilf" secondAttribute="bottom" constant="100" id="fUS-Mo-wDj"/>
                             <constraint firstItem="5C2-JV-0jq" firstAttribute="trailing" secondItem="cB1-Uv-ilf" secondAttribute="trailing" id="hTL-Iv-IuM"/>
                             <constraint firstAttribute="bottom" secondItem="vY9-oh-9ua" secondAttribute="bottom" id="jgs-r4-pUe"/>
                             <constraint firstItem="5C2-JV-0jq" firstAttribute="leading" secondItem="cB1-Uv-ilf" secondAttribute="leading" id="kuf-Dn-jFk"/>
                             <constraint firstItem="cB1-Uv-ilf" firstAttribute="top" secondItem="3qc-Dm-8y3" secondAttribute="bottom" constant="20" id="p9x-xq-YpN"/>
                             <constraint firstItem="k4a-gW-YTw" firstAttribute="top" secondItem="JwH-xz-mhs" secondAttribute="top" constant="-47" id="pgG-WM-BSg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="CKb-TE-H5q" secondAttribute="bottom" constant="1" id="qWn-0S-esf"/>
                             <constraint firstItem="JwH-xz-mhs" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="exv-fr-9ke" secondAttribute="trailing" symbolic="YES" id="rvO-1a-gZs"/>
                             <constraint firstItem="E5u-QR-SEG" firstAttribute="leading" secondItem="JwH-xz-mhs" secondAttribute="leading" constant="67" id="vEP-Sf-I5x"/>
                             <constraint firstItem="3qc-Dm-8y3" firstAttribute="leading" secondItem="E5u-QR-SEG" secondAttribute="leading" id="wIH-aA-4vc"/>
@@ -1254,7 +1267,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="V9b-P5-9JW"/>
+        <segue reference="NlS-uN-0wG"/>
         <segue reference="rNq-sC-TTr"/>
     </inferredMetricsTieBreakers>
     <resources>

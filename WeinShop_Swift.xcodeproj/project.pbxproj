@@ -10,6 +10,7 @@
 		92499CC3291A637E00611714 /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92499CC1291A637E00611714 /* CartItem+CoreDataClass.swift */; };
 		92499CC4291A637E00611714 /* CartItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92499CC2291A637E00611714 /* CartItem+CoreDataProperties.swift */; };
 		9259BF99292CF513001568AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259BF98292CF513001568AE /* ProfileViewController.swift */; };
+		9259BF9B292D1674001568AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259BF9A292D1674001568AE /* User.swift */; };
 		92601A7D29140A5700F69596 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92601A7C29140A5600F69596 /* CartTableViewCell.swift */; };
 		9283551129265DCC009E44C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9283551029265DCC009E44C9 /* GoogleService-Info.plist */; };
 		92835515292660B3009E44C9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 92835514292660B3009E44C9 /* FirebaseAuth */; };
@@ -40,6 +41,7 @@
 		92499CC1291A637E00611714 /* CartItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92499CC2291A637E00611714 /* CartItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9259BF98292CF513001568AE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9259BF9A292D1674001568AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		92601A7C29140A5600F69596 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		9283551029265DCC009E44C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9283551A2926618D009E44C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				92499CC1291A637E00611714 /* CartItem+CoreDataClass.swift */,
 				92499CC2291A637E00611714 /* CartItem+CoreDataProperties.swift */,
 				92C3429428FE7778005D5BC2 /* Wine.swift */,
+				9259BF9A292D1674001568AE /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				92DEAC1B28FD588600A311FE /* WineSelectionTableViewCell.swift in Sources */,
 				92DEAC2228FD59C400A311FE /* WineDetailsViewController.swift in Sources */,
 				92DEABFE28FD45A200A311FE /* SceneDelegate.swift in Sources */,
+				9259BF9B292D1674001568AE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

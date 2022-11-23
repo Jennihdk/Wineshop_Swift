@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class LoginViewController: UIViewController {
     
@@ -14,7 +15,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var errorLbl: UILabel!
-    
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -49,6 +49,7 @@ class LoginViewController: UIViewController {
                     
                 } else {
                     self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                    
                 }
                 
             }
