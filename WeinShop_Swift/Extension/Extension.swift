@@ -101,12 +101,19 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     //Delete items from the shopping cart
     @objc func deleteItem(_ sender: UIButton){
-        let itemToDelete = cartItems![sender.tag]
-        context.delete(itemToDelete)
-        saveCurrentCart()
-        fetchWine()
-        tableView.deleteRows(at: [IndexPath(row: sender.tag, section:0)], with: .none)
-        totalPrice()
+        let alert = UIAlertController(title: "Artikel löschen", message: "Möchtest du den Artikel wirklich aus dem Warenkorb entfernen", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Abbrechen", style: .cancel)
+        let acceptAction = UIAlertAction(title: "Löschen", style: .default, handler: { [self] (_) in
+            let itemToDelete = cartItems![sender.tag]
+            context.delete(itemToDelete)
+            saveCurrentCart()
+            fetchWine()
+            tableView.deleteRows(at: [IndexPath(row: sender.tag, section:0)], with: .none)
+            totalPrice()
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(acceptAction)
+        present(alert, animated: true)
     }
     
     //Increase the number of items in the shopping cart
@@ -124,9 +131,18 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         if itemToDecrease.quantity > 1 {
             itemToDecrease.quantity -= 1
         } else {
-            context.delete(itemToDecrease)
-            fetchWine()
-            tableView.deleteRows(at: [IndexPath(row: sender.tag, section:0)], with: .none)
+            let alert = UIAlertController(title: "Artikel löschen", message: "Möchtest du den Artikel wirklich aus dem Warenkorb entfernen", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Abbrechen", style: .cancel)
+            let acceptAction = UIAlertAction(title: "Löschen", style: .default, handler: { [self] (_) in
+                context.delete(itemToDecrease)
+                fetchWine()
+                tableView.deleteRows(at: [IndexPath(row: sender.tag, section:0)], with: .none)
+                totalPrice()
+            })
+            alert.addAction(cancelAction)
+            alert.addAction(acceptAction)
+            present(alert, animated: true)
+            
         } 
         totalPrice()
         saveCurrentCart()
