@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9213EF0E292F6D5000DDB999 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9213EF0D292F6D5000DDB999 /* FirebaseDatabase */; };
 		92499CC3291A637E00611714 /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92499CC1291A637E00611714 /* CartItem+CoreDataClass.swift */; };
 		92499CC4291A637E00611714 /* CartItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92499CC2291A637E00611714 /* CartItem+CoreDataProperties.swift */; };
 		9259BF99292CF513001568AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259BF98292CF513001568AE /* ProfileViewController.swift */; };
@@ -74,6 +75,7 @@
 			files = (
 				92835515292660B3009E44C9 /* FirebaseAuth in Frameworks */,
 				92835517292660CD009E44C9 /* FirebaseFirestoreSwift in Frameworks */,
+				9213EF0E292F6D5000DDB999 /* FirebaseDatabase in Frameworks */,
 				92835519292660E2009E44C9 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,11 +83,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9213EF0C292F6D5000DDB999 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92DEABEF28FD45A200A311FE = {
 			isa = PBXGroup;
 			children = (
 				92DEABFA28FD45A200A311FE /* WeinShop_Swift */,
 				92DEABF928FD45A200A311FE /* Products */,
+				9213EF0C292F6D5000DDB999 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +208,7 @@
 				92835514292660B3009E44C9 /* FirebaseAuth */,
 				92835516292660CD009E44C9 /* FirebaseFirestoreSwift */,
 				92835518292660E2009E44C9 /* FirebaseStorage */,
+				9213EF0D292F6D5000DDB999 /* FirebaseDatabase */,
 			);
 			productName = WeinShop_Swift;
 			productReference = 92DEABF828FD45A200A311FE /* WeinShop_Swift.app */;
@@ -507,6 +518,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9213EF0D292F6D5000DDB999 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9283551229265E5F009E44C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
 		92835514292660B3009E44C9 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9283551229265E5F009E44C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import Firebase
 
 class ProfileViewController: UIViewController {
     
@@ -20,8 +21,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var postalCodeTF: UITextField!
     @IBOutlet weak var locationTF: UITextField!
     @IBOutlet weak var countryTF: UITextField!
-    
-    var firstName: String?
+    @IBOutlet weak var btnLogOut: UIButton!
+    @IBOutlet weak var btnLogIn: UIButton!
     
     let db = Firestore.firestore()
     
@@ -29,31 +30,36 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*fetchUser { user in
-            self.user = user
-            print(user)
-            
+        fetchUser { user in
+            let user = user
             DispatchQueue.main.async { [self] in
                 if Auth.auth().currentUser != nil {
                     print("User is signed in")
                     firstNameTF.text = user.firstName
                     lastNameTF.text = user.lastName
                     emailTF.text = user.email
+                    btnLogIn.isHidden = true
                 } else {
                     print("No user is signed in")
+                    btnLogIn.isHidden = false
+                    btnLogOut.isHidden = true
                 }
-                
             }
-        }*/
+        }
+        
     }
     
-    /*func fetchUser(completion: @escaping(User) -> Void) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        db.collection("User").getDocuments() { querySnapshot, error in
+    }
+    
+    //MARK: - Functions
+    func fetchUser(completion: @escaping(User) -> Void) {
+        db.collection("Users").getDocuments() { querySnapshot, error in
             if let error = error {
                 print("Error getting User: \(error)")
             } else {
-                let userToShow = User()
+                var userToShow = User()
                 for document in querySnapshot!.documents {
                     var user = User()
                     let userData = document.data()
@@ -61,17 +67,14 @@ class ProfileViewController: UIViewController {
                     user.firstName = userData["firstName"] as? String
                     user.lastName = userData["lastName"] as? String
                     user.email = userData["email"] as?String
+                    userToShow = user
                 }
                 completion(userToShow)
             }
         }
-    }*/
-    
-    func getUser() {
-        
     }
     
-    @objc func logOut() {
+    func logOut() {
         let firebaseAuth = Auth.auth()
             
         do {
@@ -83,7 +86,17 @@ class ProfileViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func btnLogOutClicked(_ sender: UIButton) {
-        logOut()
-        performSegue(withIdentifier: "LogOutSegue", sender: nil)
+        let alert = UIAlertController(title: "Abmelden", message: "Möchtest Du Dein Konto wirklich abmelden?", preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Abbrechen", style: .default)
+        let acceptAction = UIAlertAction(title: "Abmelden", style: .default, handler: { [self] (_) in
+            logOut()
+            performSegue(withIdentifier: "LogOutSegue", sender: nil)
+        })
+        alert.addAction(cancelAction)
+        alert.addAction(acceptAction)
+        present(alert, animated: true)
     }
+    
+    
+    
 }

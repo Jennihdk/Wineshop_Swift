@@ -1119,11 +1119,25 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="h7G-sP-NBC"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="Ausloggen">
+                                <buttonConfiguration key="configuration" style="plain" image="logout" title="Ausloggen">
                                     <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="btnLogOutClicked:" destination="fdv-BD-h2H" eventType="touchUpInside" id="vMK-rY-AKm"/>
+                                    <action selector="btnLogOutClicked:" destination="fdv-BD-h2H" eventType="touchUpInside" id="v9a-G5-iaa"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSj-II-1ix">
+                                <rect key="frame" x="16" y="710" width="135" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="qBd-88-Yu8"/>
+                                    <constraint firstAttribute="height" constant="35" id="ttp-Zf-hAZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="login" title="Einloggen">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="X08-6M-Htc" kind="presentation" identifier="LogInSegue" modalPresentationStyle="fullScreen" id="oei-f7-Evv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1134,10 +1148,12 @@
                             <constraint firstItem="yXT-Mm-a1F" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CUY-yY-6of" secondAttribute="trailing" symbolic="YES" id="1y5-IB-vpq"/>
                             <constraint firstItem="AP4-Ma-qjP" firstAttribute="top" secondItem="zKy-wa-aFu" secondAttribute="bottom" constant="8" symbolic="YES" id="2VX-bs-ibr"/>
                             <constraint firstItem="vyw-Mg-eej" firstAttribute="leading" secondItem="NVv-YK-wee" secondAttribute="leading" id="48F-7r-7jL"/>
+                            <constraint firstItem="dSj-II-1ix" firstAttribute="leading" secondItem="AP4-Ma-qjP" secondAttribute="leading" id="5IA-TZ-nxH"/>
                             <constraint firstItem="cHX-l8-czW" firstAttribute="top" secondItem="NHo-cJ-qLD" secondAttribute="bottom" constant="8" symbolic="YES" id="90f-OZ-5BW"/>
                             <constraint firstItem="7nt-Os-a7P" firstAttribute="top" secondItem="gzm-fd-7Ws" secondAttribute="bottom" constant="8" symbolic="YES" id="9Cp-dX-xLz"/>
                             <constraint firstItem="xcW-XJ-Ink" firstAttribute="leading" secondItem="AP4-Ma-qjP" secondAttribute="leading" id="A9z-id-aAJ"/>
                             <constraint firstItem="NHo-cJ-qLD" firstAttribute="leading" secondItem="cHX-l8-czW" secondAttribute="leading" id="C1X-BQ-FFS"/>
+                            <constraint firstItem="dSj-II-1ix" firstAttribute="top" secondItem="AP4-Ma-qjP" secondAttribute="bottom" constant="85" id="CdS-YA-uzR"/>
                             <constraint firstItem="yXT-Mm-a1F" firstAttribute="trailing" secondItem="3Pa-kI-k7p" secondAttribute="trailing" constant="153" id="DgS-Pu-mCh"/>
                             <constraint firstItem="CUY-yY-6of" firstAttribute="top" secondItem="ehq-Ro-5Ta" secondAttribute="bottom" constant="30" id="Dh9-dk-zhK"/>
                             <constraint firstItem="yXT-Mm-a1F" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NVv-YK-wee" secondAttribute="trailing" symbolic="YES" id="E9g-0D-CHT"/>
@@ -1168,6 +1184,8 @@
                             <constraint firstItem="Csf-6I-AMw" firstAttribute="top" secondItem="7nt-Os-a7P" secondAttribute="bottom" constant="30" id="jvu-sN-3sV"/>
                             <constraint firstItem="4xY-81-eYx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QM8-sK-kc5" secondAttribute="leading" id="lP5-jO-xtk"/>
                             <constraint firstItem="4xY-81-eYx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gzm-fd-7Ws" secondAttribute="trailing" constant="8" symbolic="YES" id="lvB-ag-ucI"/>
+                            <constraint firstItem="yXT-Mm-a1F" firstAttribute="bottom" secondItem="dSj-II-1ix" secondAttribute="bottom" constant="16" id="nLs-eY-gTe"/>
+                            <constraint firstItem="yXT-Mm-a1F" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dSj-II-1ix" secondAttribute="trailing" symbolic="YES" id="oIX-9G-LbU"/>
                             <constraint firstItem="yXT-Mm-a1F" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zKy-wa-aFu" secondAttribute="trailing" symbolic="YES" id="pjU-Ae-aZv"/>
                             <constraint firstItem="7nt-Os-a7P" firstAttribute="leading" secondItem="NVv-YK-wee" secondAttribute="leading" id="qP9-M3-ehO"/>
                             <constraint firstItem="gzm-fd-7Ws" firstAttribute="top" secondItem="RKy-0q-sDE" secondAttribute="bottom" constant="30" id="rbK-oD-AI0"/>
@@ -1184,6 +1202,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profil" image="person" catalog="system" id="1YQ-61-R82"/>
                     <connections>
+                        <outlet property="btnLogIn" destination="dSj-II-1ix" id="0yN-dS-5rq"/>
+                        <outlet property="btnLogOut" destination="xcW-XJ-Ink" id="Kfi-gO-3I6"/>
                         <outlet property="countryTF" destination="AP4-Ma-qjP" id="UrN-ju-Yw0"/>
                         <outlet property="emailTF" destination="RKy-0q-sDE" id="3Kq-qV-8QK"/>
                         <outlet property="firstNameTF" destination="Ik0-hT-fJD" id="0cY-Jm-Oyt"/>
@@ -1197,7 +1217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3W-HD-lZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="1617"/>
+            <point key="canvasLocation" x="1427.6923076923076" y="1616.5876777251185"/>
         </scene>
         <!--Kategorien-->
         <scene sceneID="lDa-zG-8VN">
@@ -1267,22 +1287,27 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="oei-f7-Evv"/>
         <segue reference="NlS-uN-0wG"/>
-        <segue reference="rNq-sC-TTr"/>
+        <segue reference="pco-3x-A8a"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="cart.fill.badge.minus" catalog="system" width="128" height="105"/>
         <image name="cart.fill.badge.plus" catalog="system" width="128" height="105"/>
+        <image name="login" width="12" height="12"/>
+        <image name="logout" width="12" height="12"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
-        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <image name="redwineglass" width="640" height="427"/>
         <image name="rosewineglass" width="640" height="427"/>
         <image name="startscreenImg" width="640" height="960"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <image name="whitewineglass" width="640" height="427"/>
         <image name="wineglass" catalog="system" width="95" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
