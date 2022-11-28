@@ -26,13 +26,12 @@ class RegisterViewController: UIViewController {
     }
     
     //MARK: - Functions
-    func createAlert(withTitle: String, andMessage: String) {
-        
-        let alertController = UIAlertController(title: withTitle, message: andMessage, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        
-        self.present(alertController, animated: true)
-        
+    
+    
+    
+    //MARK: - Actions
+    @IBAction func signUpBtnClicked(_ sender: UIButton) {
+        signUp()
     }
     
     func signUp() {
@@ -65,12 +64,15 @@ class RegisterViewController: UIViewController {
         if validated {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if error != nil {
+                    print("Signup fehler: \(error)")
                     self.createAlert(withTitle: "Fehler", andMessage: "Es ist ein unbekannter Fehler aufgetreten.")
+                    
                 } else {
                     
                     //Create Firestore
                     let db = Firestore.firestore()
-                    db.collection("Users").addDocument(data: [
+                    let currentUser = Auth.auth().currentUser?.uid
+                    db.collection("Users").document(currentUser!).setData([
                         "firstName": firstName,
                         "lastName": lastName,
                         "email": email,
@@ -79,6 +81,7 @@ class RegisterViewController: UIViewController {
                         
                         if error != nil {
                             self.createAlert(withTitle: "Fehler", andMessage: "Es ist ein Fehler aufgetreten")
+                            print(error)
                         } else {
                             self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
                         }
@@ -89,9 +92,12 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    //MARK: - Actions
-    @IBAction func signUpBtnClicked(_ sender: UIButton) {
-        signUp()
+    func createAlert(withTitle: String, andMessage: String) {
+        
+        let alertController = UIAlertController(title: withTitle, message: andMessage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alertController, animated: true)
+        
     }
-    
 }

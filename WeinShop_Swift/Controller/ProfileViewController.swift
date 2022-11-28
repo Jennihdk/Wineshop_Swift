@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
-import Firebase
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
     
@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var countryTF: UITextField!
     @IBOutlet weak var btnLogOut: UIButton!
     @IBOutlet weak var btnLogIn: UIButton!
+    @IBOutlet weak var btnSaveUserData: UIButton!
     
     let db = Firestore.firestore()
     
@@ -38,19 +39,20 @@ class ProfileViewController: UIViewController {
                     firstNameTF.text = user.firstName
                     lastNameTF.text = user.lastName
                     emailTF.text = user.email
+                    streetTF.text = user.street
+                    houseNumberTF.text = user.houseNumber
+                    postalCodeTF.text = user.postalCode
+                    locationTF.text = user.location
+                    countryTF.text = user.country
                     btnLogIn.isHidden = true
                 } else {
                     print("No user is signed in")
                     btnLogIn.isHidden = false
                     btnLogOut.isHidden = true
+                    btnSaveUserData.isHidden = true
                 }
             }
         }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     //MARK: - Functions
@@ -66,7 +68,12 @@ class ProfileViewController: UIViewController {
                     
                     user.firstName = userData["firstName"] as? String
                     user.lastName = userData["lastName"] as? String
-                    user.email = userData["email"] as?String
+                    user.email = userData["email"] as? String
+                    user.street = userData["street"] as? String
+                    user.houseNumber = userData["houseNuber"] as? String
+                    user.postalCode = userData["postalCode"] as? String
+                    user.location = userData["location"] as? String
+                    user.country = userData["country"] as? String
                     userToShow = user
                 }
                 completion(userToShow)
@@ -84,6 +91,24 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    func updateProfileData() {
+        let currentUser = Auth.auth().currentUser?.uid
+        // Set new fields to the current user
+        db.collection("Users").document(currentUser!).setData([
+            "street": streetTF.text!,
+            "houseNumber": houseNumberTF.text!,
+            "postalCode": postalCodeTF.text!,
+            "location": locationTF.text!,
+            "country": countryTF.text!
+         ], merge: true ){ err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
     //MARK: - Actions
     @IBAction func btnLogOutClicked(_ sender: UIButton) {
         let alert = UIAlertController(title: "Abmelden", message: "Möchtest Du Dein Konto wirklich abmelden?", preferredStyle: .actionSheet)
@@ -95,8 +120,11 @@ class ProfileViewController: UIViewController {
         alert.addAction(cancelAction)
         alert.addAction(acceptAction)
         present(alert, animated: true)
+        logOut()
     }
     
-    
-    
+    @IBAction func btnSaveUserDataClicked(_ sender: UIButton) {
+        updateProfileData()
+    }
+
 }
