@@ -16,10 +16,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var errorLbl: UILabel!
     
+    @IBOutlet weak var btnLogIn: UIButton!
+    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        roundTextFieldCorners()
     }
     
     //MARK: viewDidAppear = Wenn View (UI) angezeigt wird
@@ -35,6 +38,15 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //MARK: - Functions
+    func roundTextFieldCorners() {
+        emailTF.layer.cornerRadius = emailTF.frame.size.height/2
+        emailTF.clipsToBounds = true
+        passwordTF.layer.cornerRadius = passwordTF.frame.size.height/2
+        passwordTF.clipsToBounds = true
+    }
+    
+    //MARK: - Actions
     @IBAction func loginBtnClicked(_ sender: UIButton) {
         let email = emailTF.text!
         let password = passwordTF.text!

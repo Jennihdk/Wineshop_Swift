@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9213EF0E292F6D5000DDB999 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9213EF0D292F6D5000DDB999 /* FirebaseDatabase */; };
+		92379C092939FCF4004CC0EB /* CashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92379C082939FCF4004CC0EB /* CashViewController.swift */; };
 		92499CC3291A637E00611714 /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92499CC1291A637E00611714 /* CartItem+CoreDataClass.swift */; };
 		92499CC4291A637E00611714 /* CartItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92499CC2291A637E00611714 /* CartItem+CoreDataProperties.swift */; };
 		9259BF99292CF513001568AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9259BF98292CF513001568AE /* ProfileViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92379C082939FCF4004CC0EB /* CashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashViewController.swift; sourceTree = "<group>"; };
 		92499CC1291A637E00611714 /* CartItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92499CC2291A637E00611714 /* CartItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9259BF98292CF513001568AE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				92DEAC1628FD578500A311FE /* CartViewController.swift */,
 				9284002429152F8C00B5361D /* BoughtViewController.swift */,
 				9259BF98292CF513001568AE /* ProfileViewController.swift */,
+				92379C082939FCF4004CC0EB /* CashViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9283551B2926618D009E44C9 /* LoginViewController.swift in Sources */,
+				92379C092939FCF4004CC0EB /* CashViewController.swift in Sources */,
 				92499CC4291A637E00611714 /* CartItem+CoreDataProperties.swift in Sources */,
 				9259BF99292CF513001568AE /* ProfileViewController.swift in Sources */,
 				92DEAC1528FD570E00A311FE /* SearchViewController.swift in Sources */,

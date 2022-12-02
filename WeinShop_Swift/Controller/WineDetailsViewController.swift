@@ -67,7 +67,6 @@ class WineDetailsViewController: UIViewController {
             if cartList.count > 0 {
                 let cartItem = cartList.first
                 cartItem!.quantity += 1
-                //cartItem!.totalPrice = cartItem!.singlePrice * Float(cartItem!.quantity)
             } else {
                 let cartItem = CartItem(context: context)
                 let image: UIImage = detailImage.image!
@@ -82,7 +81,6 @@ class WineDetailsViewController: UIViewController {
                 cartItem.singlePrice = Float(eurozeichen)!
                 
                 cartItem.quantity = 1
-                //cartItem.totalPrice = cartItem.singlePrice * Float(cartItem.quantity)
             }
             do {
                 try context.save()

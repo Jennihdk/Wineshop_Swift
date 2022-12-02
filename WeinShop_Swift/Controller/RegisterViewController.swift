@@ -22,16 +22,33 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        roundTextFieldCorners()
     }
     
     //MARK: - Functions
+    func roundTextFieldCorners() {
+        firstNameTF.layer.borderWidth = 0.1
+        firstNameTF.layer.cornerRadius = firstNameTF.frame.size.height/2
+        firstNameTF.clipsToBounds = true
+        lastNameTF.layer.borderWidth = 0.1
+        lastNameTF.layer.cornerRadius = lastNameTF.frame.size.height/2
+        lastNameTF.clipsToBounds = true
+        emailTF.layer.borderWidth = 0.1
+        emailTF.layer.cornerRadius = emailTF.frame.size.height/2
+        emailTF.clipsToBounds = true
+        passwordTF.layer.borderWidth = 0.1
+        passwordTF.layer.cornerRadius = passwordTF.frame.size.height/2
+        passwordTF.clipsToBounds = true
+        passwordRepeatTF.layer.borderWidth = 0.1
+        passwordRepeatTF.layer.cornerRadius = passwordRepeatTF.frame.size.height/2
+        passwordRepeatTF.clipsToBounds = true
+    }
     
-    
-    
-    //MARK: - Actions
-    @IBAction func signUpBtnClicked(_ sender: UIButton) {
-        signUp()
+    func createAlert(withTitle: String, andMessage: String) {
+        let alertController = UIAlertController(title: withTitle, message: andMessage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alertController, animated: true)
     }
     
     func signUp() {
@@ -64,7 +81,6 @@ class RegisterViewController: UIViewController {
         if validated {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if error != nil {
-                    print("Signup fehler: \(error)")
                     self.createAlert(withTitle: "Fehler", andMessage: "Es ist ein unbekannter Fehler aufgetreten.")
                     
                 } else {
@@ -81,7 +97,6 @@ class RegisterViewController: UIViewController {
                         
                         if error != nil {
                             self.createAlert(withTitle: "Fehler", andMessage: "Es ist ein Fehler aufgetreten")
-                            print(error)
                         } else {
                             self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
                         }
@@ -92,12 +107,9 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    func createAlert(withTitle: String, andMessage: String) {
-        
-        let alertController = UIAlertController(title: withTitle, message: andMessage, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        
-        self.present(alertController, animated: true)
-        
+    //MARK: - Actions
+    @IBAction func signUpBtnClicked(_ sender: UIButton) {
+        signUp()
     }
+
 }

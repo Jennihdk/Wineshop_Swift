@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import FirebaseAuth
+import FirebaseFirestore
 
 class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
@@ -21,6 +23,9 @@ class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     //API
     let apiClient = APIClient()
+    
+    //Firebase
+    let db = Firestore.firestore()
 
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -68,6 +73,7 @@ class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     //MARK: - Actions
     @IBAction func btnCheckOutClicked(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "CashSegue", sender: nil)
     }
+    
 }
