@@ -8,6 +8,28 @@
 import Foundation
 import UIKit
 
+//MARK: - Keyboard handling
+extension UIViewController {
+    
+    func initializeHideKeyboard(){
+            //Gesture Recognizer which will trigger dismissMyKeyboard() function
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+                target: self,
+                action: #selector(dismissMyKeyboard))
+            
+            //Add this tap gesture recognizer to the parent view
+            view.addGestureRecognizer(tap)
+            tap.cancelsTouchesInView = false
+        }
+        
+        @objc func dismissMyKeyboard(){
+            //endEditing causes the view (or one of its embedded text fields) to resign the first responder status.
+            //In short- Dismiss the active keyboard.
+            view.endEditing(true)
+        }
+}
+
+
 //MARK: - SearchTableView
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     

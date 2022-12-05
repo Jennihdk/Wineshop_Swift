@@ -23,6 +23,7 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        initializeHideKeyboard()
         
         apiClient.getWineList { wine in
             self.wineList = wine

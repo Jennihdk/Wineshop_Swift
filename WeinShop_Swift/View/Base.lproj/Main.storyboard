@@ -493,7 +493,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hO6-0E-7GF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="-29"/>
+            <point key="canvasLocation" x="632" y="-29"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="0LX-9O-EiY">
@@ -1029,9 +1029,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qs-kH-k5e">
-                                <rect key="frame" x="97" y="775" width="200" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qs-kH-k5e">
+                                <rect key="frame" x="158.66666666666666" y="775" width="77.666666666666657" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Kaufen" cornerStyle="capsule">
                                     <color key="baseBackgroundColor" red="0.23685488099999999" green="0.29890021680000001" blue="0.43867129090000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1045,12 +1044,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wRP-mp-IWG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DS7-P8-uHB" secondAttribute="trailing" symbolic="YES" id="0V6-Cg-kAI"/>
+                            <constraint firstItem="1qs-kH-k5e" firstAttribute="bottom" secondItem="wRP-mp-IWG" secondAttribute="bottom" id="2rZ-v4-QJo"/>
                             <constraint firstItem="Vi9-BI-5EV" firstAttribute="trailing" secondItem="QEV-jY-ZXr" secondAttribute="trailing" id="6KI-Yi-6zt"/>
+                            <constraint firstItem="1qs-kH-k5e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wRP-mp-IWG" secondAttribute="leading" id="7aY-rO-ubH"/>
                             <constraint firstItem="eA8-aa-9Nb" firstAttribute="top" secondItem="Vd3-ez-yBB" secondAttribute="bottom" constant="30" id="8Ke-Wh-Vh9"/>
                             <constraint firstItem="j59-nM-fCr" firstAttribute="leading" secondItem="wRP-mp-IWG" secondAttribute="leading" id="8Ri-LQ-Tvh"/>
                             <constraint firstItem="j59-nM-fCr" firstAttribute="trailing" secondItem="wRP-mp-IWG" secondAttribute="trailing" id="8mv-w5-tML"/>
                             <constraint firstItem="j59-nM-fCr" firstAttribute="top" secondItem="wRP-mp-IWG" secondAttribute="top" id="A17-vf-keK"/>
+                            <constraint firstItem="wRP-mp-IWG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1qs-kH-k5e" secondAttribute="trailing" id="BM5-NB-gFF"/>
                             <constraint firstItem="WwT-YB-Ikl" firstAttribute="top" secondItem="vCL-tA-owI" secondAttribute="bottom" constant="30" id="BRv-EB-7h3"/>
+                            <constraint firstItem="1qs-kH-k5e" firstAttribute="centerX" secondItem="eA8-aa-9Nb" secondAttribute="centerX" id="CFE-Ma-6Kc"/>
                             <constraint firstItem="nIj-IO-NxJ" firstAttribute="top" secondItem="Vd3-ez-yBB" secondAttribute="bottom" constant="30" id="EIo-Ld-ehj"/>
                             <constraint firstItem="Vd3-ez-yBB" firstAttribute="top" secondItem="ztR-pU-CHf" secondAttribute="bottom" constant="8" symbolic="YES" id="Ewb-UV-Rux"/>
                             <constraint firstItem="Vd3-ez-yBB" firstAttribute="leading" secondItem="DS7-P8-uHB" secondAttribute="leading" id="G3h-1x-7NF"/>
@@ -1451,7 +1454,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="oei-f7-Evv"/>
         <segue reference="JQB-dx-D7V"/>
-        <segue reference="pco-3x-A8a"/>
+        <segue reference="rNq-sC-TTr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>

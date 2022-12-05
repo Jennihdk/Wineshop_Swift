@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         roundTextFieldCorners()
+        initializeHideKeyboard()
         
         fetchUser { user in
             let user = user

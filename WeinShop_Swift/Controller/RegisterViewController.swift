@@ -23,6 +23,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         roundTextFieldCorners()
+        initializeHideKeyboard()
     }
     
     //MARK: - Functions

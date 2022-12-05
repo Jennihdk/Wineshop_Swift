@@ -32,6 +32,7 @@ class CashViewController: UIViewController {
         super.viewDidLoad()
         
         roundTextFieldCorners()
+        initializeHideKeyboard()
 
         fetchUser { user in
             let user = user

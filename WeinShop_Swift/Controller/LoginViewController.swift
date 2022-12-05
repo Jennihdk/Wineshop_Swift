@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         roundTextFieldCorners()
+        initializeHideKeyboard()
     }
     
     //MARK: viewDidAppear = Wenn View (UI) angezeigt wird
@@ -39,7 +40,7 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - Functions
-    func roundTextFieldCorners() {
+    func roundTextFieldCorners() {
         emailTF.layer.cornerRadius = emailTF.frame.size.height/2
         emailTF.clipsToBounds = true
         passwordTF.layer.cornerRadius = passwordTF.frame.size.height/2
