@@ -9,17 +9,27 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
-    //MARK: - Variables
+    //MARK: - Variables & Outlets
+    @IBOutlet weak var btnRedwine: UIButton!
+    @IBOutlet weak var btnWhitewine: UIButton!
+    @IBOutlet weak var btnRosewine: UIButton!
+    
     var clickedCategory: String?
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        btnTextStyle()
     }
     
     //MARK: - Functions
+    func btnTextStyle() {
+        btnRedwine.titleLabel?.font = UIFont.boldSystemFont(ofSize: 28)
+        btnWhitewine.titleLabel?.font = UIFont.boldSystemFont(ofSize: 28)
+        btnRosewine.titleLabel?.font = UIFont.boldSystemFont(ofSize: 28)
+    }
+    
     func setCategory(tableViewController: WineSelectionTableViewController) {
         tableViewController.category = clickedCategory
     }
