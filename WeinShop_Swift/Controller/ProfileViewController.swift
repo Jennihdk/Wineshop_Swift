@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
     
@@ -34,18 +35,18 @@ class ProfileViewController: UIViewController {
         initializeHideKeyboard()
         
         fetchUser { user in
-            let user = user
+            let currentUser = user
             DispatchQueue.main.async { [self] in
                 if Auth.auth().currentUser != nil {
                     print("User is signed in")
-                    firstNameTF.text = user.firstName
-                    lastNameTF.text = user.lastName
-                    emailTF.text = user.email
-                    streetTF.text = user.street
-                    houseNumberTF.text = user.houseNumber
-                    postalCodeTF.text = user.postalCode
-                    locationTF.text = user.location
-                    countryTF.text = user.country
+                    firstNameTF.text = currentUser.firstName
+                    lastNameTF.text = currentUser.lastName
+                    emailTF.text = currentUser.email
+                    streetTF.text = currentUser.street
+                    houseNumberTF.text = currentUser.houseNumber
+                    postalCodeTF.text = currentUser.postalCode
+                    locationTF.text = currentUser.location
+                    countryTF.text = currentUser.country
                     btnLogIn.isHidden = true
                 } else {
                     print("No user is signed in")
@@ -86,27 +87,26 @@ class ProfileViewController: UIViewController {
     }
     
     func fetchUser(completion: @escaping(User) -> Void) {
-        db.collection("Users").getDocuments() { querySnapshot, error in
-            if let error = error {
-                print("Error getting User: \(error)")
+        //fetches the data of the currently logged in user
+        let currentUser = Auth.auth().currentUser?.uid
+        let docRef = db.collection("Users").document(currentUser!)
+
+        docRef.getDocument { (document, error) in
+            var user = User()
+            if let document = document, document.exists {
+                let userData = document.data()
+                user.firstName = userData!["firstName"] as? String
+                user.lastName = userData!["lastName"] as? String
+                user.email = userData!["email"] as? String
+                user.street = userData!["street"] as? String
+                user.houseNumber = userData!["houseNumber"] as? String
+                user.postalCode = userData!["postalCode"] as? String
+                user.location = userData!["location"] as? String
+                user.country = userData!["country"] as? String
             } else {
-                var userToShow = User()
-                for document in querySnapshot!.documents {
-                    var user = User()
-                    let userData = document.data()
-                    
-                    user.firstName = userData["firstName"] as? String
-                    user.lastName = userData["lastName"] as? String
-                    user.email = userData["email"] as? String
-                    user.street = userData["street"] as? String
-                    user.houseNumber = userData["houseNuber"] as? String
-                    user.postalCode = userData["postalCode"] as? String
-                    user.location = userData["location"] as? String
-                    user.country = userData["country"] as? String
-                    userToShow = user
-                }
-                completion(userToShow)
+                print("Document does not exist")
             }
+            completion(user)
         }
     }
     

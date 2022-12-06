@@ -18,3 +18,5 @@ struct User {
     var location: String?
     var country: String?
 }
+
+

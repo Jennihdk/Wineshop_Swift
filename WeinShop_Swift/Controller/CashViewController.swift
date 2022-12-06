@@ -35,15 +35,15 @@ class CashViewController: UIViewController {
         initializeHideKeyboard()
 
         fetchUser { user in
-            let user = user
+            let currentUser = user
             DispatchQueue.main.async { [self] in
                 if Auth.auth().currentUser != nil {
                     print("User is signed in")
-                    streetTF.text = user.street
-                    houseNumberTF.text = user.houseNumber
-                    postalCodeTF.text = user.postalCode
-                    locationTF.text = user.location
-                    countryTF.text = user.country
+                    streetTF.text = currentUser.street
+                    houseNumberTF.text = currentUser.houseNumber
+                    postalCodeTF.text = currentUser.postalCode
+                    locationTF.text = currentUser.location
+                    countryTF.text = currentUser.country
                 } else {
                     print("No user is signed in")
                 }
@@ -71,30 +71,29 @@ class CashViewController: UIViewController {
     }
     
     func fetchUser(completion: @escaping(User) -> Void) {
-        db.collection("Users").getDocuments() { querySnapshot, error in
-            if let error = error {
-                print("Error getting User: \(error)")
+        //fetches the data of the currently logged in user
+        let currentUser = Auth.auth().currentUser?.uid
+        let docRef = db.collection("Users").document(currentUser!)
+
+        docRef.getDocument { (document, error) in
+            var user = User()
+            if let document = document, document.exists {
+                let userData = document.data()
+                user.street = userData!["street"] as? String
+                user.houseNumber = userData!["houseNumber"] as? String
+                user.postalCode = userData!["postalCode"] as? String
+                user.location = userData!["location"] as? String
+                user.country = userData!["country"] as? String
             } else {
-                var userToShow = User()
-                for document in querySnapshot!.documents {
-                    var user = User()
-                    let userData = document.data()
-                    
-                    user.street = userData["street"] as? String
-                    user.houseNumber = userData["houseNuber"] as? String
-                    user.postalCode = userData["postalCode"] as? String
-                    user.location = userData["location"] as? String
-                    user.country = userData["country"] as? String
-                    userToShow = user
-                }
-                completion(userToShow)
+                print("Document does not exist")
             }
+            completion(user)
         }
     }
     
     func updateProfileData() {
         let currentUser = Auth.auth().currentUser?.uid
-        // Set new fields to the current user
+        //Set new fields to the currently logged in user
         db.collection("Users").document(currentUser!).setData([
             "street": streetTF.text!,
             "houseNumber": houseNumberTF.text!,
@@ -112,8 +111,10 @@ class CashViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func btnCompletePurchaseClicked(_ sender: UIButton) {
+        //Saves the user data for the profile if they have not been entered before
         updateProfileData()
         
+        //Deletes all items from the shopping cart
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CartItem")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
