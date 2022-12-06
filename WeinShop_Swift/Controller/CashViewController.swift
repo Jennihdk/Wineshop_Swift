@@ -70,6 +70,13 @@ class CashViewController: UIViewController {
         countryTF.clipsToBounds = true
     }
     
+    func createAlert(withTitle: String, andMessage: String) {
+        let alertController = UIAlertController(title: withTitle, message: andMessage, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alertController, animated: true)
+    }
+    
     func fetchUser(completion: @escaping(User) -> Void) {
         //fetches the data of the currently logged in user
         let currentUser = Auth.auth().currentUser?.uid
@@ -112,7 +119,12 @@ class CashViewController: UIViewController {
     //MARK: - Actions
     @IBAction func btnCompletePurchaseClicked(_ sender: UIButton) {
         //Saves the user data for the profile if they have not been entered before
-        updateProfileData()
+        if !streetTF.text!.isEmpty && !houseNumberTF.text!.isEmpty && !postalCodeTF.text!.isEmpty && !locationTF.text!.isEmpty && !countryTF.text!.isEmpty {
+            updateProfileData()
+        } else {
+            createAlert(withTitle: "Fehler", andMessage: "Bitte fülle alle Felder aus.")
+        }
+        
         
         //Deletes all items from the shopping cart
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CartItem")

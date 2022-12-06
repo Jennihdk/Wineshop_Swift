@@ -36,6 +36,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-rz-bAg">
                                 <rect key="frame" x="16" y="91" width="358" height="207"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.30396316224172187" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="207" id="YWh-QN-JVo"/>
                                 </constraints>
@@ -48,6 +49,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbr-gb-LsE">
                                 <rect key="frame" x="16" y="547" width="358" height="207"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.30484271522185441" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="207" id="WIJ-30-fa3"/>
                                 </constraints>
@@ -60,6 +62,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8C-cw-ehk">
                                 <rect key="frame" x="16" y="319" width="358" height="207"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.30440293873178809" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="207" id="jMM-oC-sJK"/>
                                 </constraints>
@@ -100,6 +103,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Kategorien" id="hGN-uw-PAh"/>
                     <connections>
+                        <outlet property="btnRedwine" destination="zYB-rz-bAg" id="FMh-hn-idL"/>
+                        <outlet property="btnRosewine" destination="xbr-gb-LsE" id="qiw-4x-aNy"/>
+                        <outlet property="btnWhitewine" destination="Z8C-cw-ehk" id="BFE-56-DZa"/>
                         <segue destination="fHS-5W-ScZ" kind="show" identifier="CategoryListSegue" id="GlY-ts-bGD"/>
                     </connections>
                 </viewController>
