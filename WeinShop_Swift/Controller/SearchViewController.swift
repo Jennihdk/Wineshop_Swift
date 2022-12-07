@@ -17,6 +17,7 @@ class SearchViewController: UIViewController {
     var searchResults: [Wine]!
     var apiClient = APIClient()
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         

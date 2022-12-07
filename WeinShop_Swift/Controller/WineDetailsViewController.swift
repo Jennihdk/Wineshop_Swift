@@ -26,9 +26,6 @@ class WineDetailsViewController: UIViewController {
     var winePrice: Float?
     var wineDescription: String?
     
-    //
-    var cart = CartViewController()
-    
     //CoreData
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -91,7 +88,6 @@ class WineDetailsViewController: UIViewController {
             print("Could not fetch cart")
         }
     }
-    
     
     //MARK: - Actions
     @IBAction func btnAddToCart(_ sender: UIButton) {

@@ -8,12 +8,6 @@
 import UIKit
 
 class BoughtViewController: UIViewController {
-    
-    
-    
-    
-    
-    
 
     //MARK: - viewDidLoad
     override func viewDidLoad() {

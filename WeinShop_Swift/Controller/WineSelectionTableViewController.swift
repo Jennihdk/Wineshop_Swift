@@ -21,7 +21,6 @@ class WineSelectionTableViewController: UITableViewController {
         
         apiClient.getWineList { wineList in
             for wine in wineList {
-                //self.wineList = wine
                 if wine.category == self.category {
                     self.wineList.append(wine)
                 }

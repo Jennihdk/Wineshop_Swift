@@ -35,6 +35,7 @@ class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
         tableView.delegate = self
     }
     
+    //MARK: - viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         fetchWine()
         totalPrice()
@@ -73,7 +74,15 @@ class CartViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     //MARK: - Actions
     @IBAction func btnCheckOutClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "CashSegue", sender: nil)
+        if cartItems?.count != nil {
+            performSegue(withIdentifier: "CashSegue", sender: nil)
+        } else {
+            let alert = UIAlertController(title: "Warenkorb", message: "Dein Warenkorb ist leer", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(action)
+            present(alert, animated: true)
+        }
+        
     }
     
 }
